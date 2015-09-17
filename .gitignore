@@ -1,0 +1,67 @@
+*.py[cod]
+
+# deployment artifacts
+quepid.git
+vagrant.rsa
+vagrant.rsa.pub
+.vagrant
+vagrant.rb
+
+# VIM swp
+*.swp
+
+# sqlite dbs
+*.db
+*.sql
+*.dmp
+*.rdb
+
+# C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+var
+sdist
+develop-eggs
+.installed.cfg
+lib64
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+
+# Translations
+*.mo
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+
+# Virtual Env
+venv
+
+# Project files
+.idea/
+
+secrets.py
+
+# Frontend stuff (nodejs + grunt artifacts)
+frontend/node_modules
+frontend/dist
+frontend/.tmp
+frontend/.sass-cache
+frontend/app/bower_components
+
+# Mac
+.DS_Store
