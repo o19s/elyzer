@@ -25,7 +25,7 @@ Install through pip
 
 # Usage
 
-Give Elyzer some text and have its analysis be broken down step-by-step. 
+Give Elyzer some text and have its analyzed. See the process broken down step-by-step on the command line.
 
 Assuming I'd created an `english_bigrams` custom analyzer for the index tmdb, I would run the analyzer like so
 
@@ -44,6 +44,15 @@ TOKEN_FILTER: bigram_filter
 ```
 
 Output is each token, prefixed by the numerical position attribute in the token stream at each step.
+
+## Args
+
+There are four required command line args:
+
+- es: the elasticsearch host (ie http://localhost:9200)
+- index: name of the index where your custom analyzer can be found
+- analyzer: name of your custom analyzer
+- text: the text to analyze
 
 
 # Shortcomings
