@@ -4,16 +4,18 @@ See step-by-step how Elasticsearch custom analyzers decompose your text into tok
 
 My therapist said this would be a good idea...
 
-Doug: *hi*
-Eliza: *How are you today.. What would you like to discuss?*
-Doug: *well I can't really see how my Elasticsearch analyzers work, on the inside*
-Eliza: *How do you know you can't really see how your Elasticsearch analyzers work, on the inside?*
-Doug: *cause I call \_analyze, and it does the whole analyzer or just one piece*
-Eliza *What other reasons might there be?*
-Doug: *I guess nobody's gotten around to making a good debugger*
-Eliza *I'm not sure I understand you fully.*
-Doug  *well just keep reading this README then...*
-Eliza *Come, come, elucidate your thoughts.*
+<pre>
+Doug:  hi
+Eliza: How are you today.. What would you like to discuss?
+Doug:  well I can't really see how my Elasticsearch analyzers work, on the inside
+Eliza: How do you know you can't really see how your Elasticsearch analyzers work, on the inside?
+Doug:  cause I call _analyze, and it does the whole analyzer or just one step
+Eliza  What other reasons might there be?
+Doug:  I guess nobody's gotten around to making a good debugger
+Eliza  I'm not sure I understand you fully.
+Doug   well just keep reading this README then...
+Eliza  Come, come, elucidate your thoughts.
+</pre>
 
 # Installation
 
