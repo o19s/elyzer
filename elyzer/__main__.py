@@ -1,3 +1,6 @@
+import urllib3
+urllib3.disable_warnings()
+
 import argparse
 from elasticsearch import Elasticsearch
 from elyzer import stepWise, getAnalyzer
