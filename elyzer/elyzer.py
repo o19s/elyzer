@@ -3,11 +3,22 @@ from __future__ import print_function
 class AnalyzerNotFound(Exception):
     pass
 
+def listify(strVal):
+    if (isinstance(strVal, str)):
+        return [strVal]
+    try:
+        unicode #Python 3 this is not defined
+    except NameError:
+        return strVal
+
+    if (isinstance(strVal, unicode)):
+        return [strVal]
+    return strVal
+
 
 def normalizeAnalyzer(analyzer):
     try:
-        if (isinstance(analyzer['char_filter'], str) or isinstance(analyzer['char_filter'], unicode)):
-            analyzer['char_filter'] = [analyzer['char_filter']]
+        analyzer['char_filter'] = listify(analyzer['char_filter'])
     except KeyError:
         analyzer['char_filter'] = []
 
@@ -31,7 +42,7 @@ def printTokens(analyzeResp):
             posnToTokens[token['position']] = [token['token']]
 
     outputStr = ""
-    for position, tokens in posnToTokens.iteritems():
+    for position, tokens in posnToTokens.items():
         outputStr += ("{%s:" % position) + ",".join(tokens) + "}\t"
     print(outputStr)
 
