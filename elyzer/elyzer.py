@@ -1,5 +1,15 @@
 from __future__ import print_function
 
+# define some standard config-free analyzers
+standard_analyzers = {
+    'simple':       {'tokenizer': 'lowercase',  'filter': []},
+    'whitespace':   {'tokenizer': 'whitespace', 'filter': []},
+    'keyword':      {'tokenizer': 'keyword',    'filter': []},
+    'stop':         {'tokenizer': 'lowercase',  'filter': ['stop']},
+    'standard':     {'tokenizer': 'standard',   'filter': ['standard', 'lowercase', 'stop']},
+    'snowball':     {'tokenizer': 'standard',   'filter': ['standard', 'lowercase', 'stop', 'snowball']}
+}
+
 class AnalyzerNotFound(Exception):
     pass
 
@@ -13,6 +23,13 @@ def normalizeAnalyzer(analyzer):
 
 
 def getAnalyzer(indexName, analyzerName, es):
+    # try standard analyzers first
+    if analyzerName in standard_analyzers:
+        analyzer = standard_analyzers[analyzerName]
+        normalizeAnalyzer(analyzer)
+        return analyzer
+
+    # otherwise try custom ones
     settings = es.indices.get_settings(index=indexName)
     try:
         analyzer = settings[indexName]['settings']['index']['analysis']['analyzer'][analyzerName]
