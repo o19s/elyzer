@@ -73,7 +73,14 @@ def stepWise(text, indexName, analyzer, es):
     printTokens(analyzeResp)
 
     # Token Filters
-    for currFilter in analyzer['filter']:
+    filters = []
+    if 'filter' in analyzer:
+        filters = analyzer['filter']
+    elif 'filters' in analyzer:
+        filters = analyzer['filters']
+    else:
+        raise ValueError("Weird... No Filters for analyzer %s" % analyzer)
+    for currFilter in filters:
         print("TOKEN_FILTER: %s" % currFilter)
         filtersInUse.append(currFilter)
         analyzeResp = es.indices.analyze(index=indexName, body=text,
