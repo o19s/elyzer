@@ -62,13 +62,13 @@ def stepWise(text, indexName, analyzer, es):
         print("CHAR_FILTER: %s" % charFilter)
         charFiltersInUse.append(charFilter)
         analyzeResp = es.indices.analyze(index=indexName, body=text,
-                                             char_filters=",".join(charFiltersInUse))
+                                             char_filter=",".join(charFiltersInUse))
         printTokens(analyzeResp)
 
     # Add tokenizer
     print("TOKENIZER: %s" % tokenizer)
     analyzeResp = es.indices.analyze(index=indexName, body=text,
-                                     char_filters=",".join(charFiltersInUse),
+                                     char_filter=",".join(charFiltersInUse),
                                      tokenizer=tokenizer)
     printTokens(analyzeResp)
 
@@ -84,7 +84,7 @@ def stepWise(text, indexName, analyzer, es):
         print("TOKEN_FILTER: %s" % currFilter)
         filtersInUse.append(currFilter)
         analyzeResp = es.indices.analyze(index=indexName, body=text,
-                                         char_filters=",".join(charFiltersInUse),
-                                         filters=",".join(filtersInUse),
+                                         char_filter=",".join(charFiltersInUse),
+                                         filter=",".join(filtersInUse),
                                          tokenizer=tokenizer)
         printTokens(analyzeResp)
