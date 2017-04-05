@@ -14,14 +14,14 @@ setup(
         ]
     },
     packages=['elyzer'],
-    version="0.3.2",
+    version="0.3.3",
     description="Step-by-Step Debug Elasticsearch Analyzers",
     long_description=read_md('README.md'),
     license="Apache",
     author="Doug Turnbull",
     author_email="dturnbull@o19s.com",
     url='https://github.com/o19s/elyzer',
-    install_requires=['elasticsearch==5.0.0'],
+    install_requires=['elasticsearch>=5.0.0,<6.0.0'],
     keywords=["elasticsearch", "database"],
     classifiers=[
           'Development Status :: 3 - Alpha',
