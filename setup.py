@@ -14,7 +14,7 @@ setup(
         ]
     },
     packages=['elyzer'],
-    version="0.3.1",
+    version="0.3.2",
     description="Step-by-Step Debug Elasticsearch Analyzers",
     long_description=read_md('README.md'),
     license="Apache",
