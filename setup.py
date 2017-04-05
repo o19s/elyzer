@@ -21,7 +21,7 @@ setup(
     author="Doug Turnbull",
     author_email="dturnbull@o19s.com",
     url='https://github.com/o19s/elyzer',
-    install_requires=['elasticsearch>=5.0.0'],
+    install_requires=['elasticsearch==5.0.0'],
     keywords=["elasticsearch", "database"],
     classifiers=[
           'Development Status :: 3 - Alpha',
