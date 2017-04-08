@@ -53,6 +53,7 @@ def printTokens(analyzeResp):
     print(outputStr)
 
 
+
 def stepWise(text, indexName, analyzer, es):
     charFiltersInUse = []
     tokenizer = analyzer['tokenizer']
