@@ -30,7 +30,7 @@ Give Elyzer some text and have its analyzed. See the process broken down step-by
 Assuming I'd created an `english_bigrams` custom analyzer for the index tmdb, I would run the analyzer like so
 
 ```
-$ elyzer --es "http://localhost:9200" --index tmdb --analyzer english_bigrams --text "Mary had a little lamb"
+$ elyzer --es "http://localhost:9200" --index tmdb --analyzer english_bigrams "Mary had a little lamb"
 TOKENIZER: standard
 {1:Mary}    {2:had} {3:a}   {4:little}  {5:lamb}    
 TOKEN_FILTER: standard
