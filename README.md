@@ -21,13 +21,10 @@ Eliza  Come, come, elucidate your thoughts.
 
 Install through pip
 
-(ES 5.x)
+(ES 2.x & 5.x)
 
     pip install elyzer
 
-(ES 2.x and earlier)
-
-    pip install elyzer==0.2.2
 
 # Usage
 
