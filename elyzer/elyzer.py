@@ -62,15 +62,15 @@ def stepWise(text, indexName, analyzer, es):
     for charFilter in analyzer['char_filter']:
         print("CHAR_FILTER: %s" % charFilter)
         charFiltersInUse.append(charFilter)
-        analyzeResp = es.indices.analyze(index=indexName, body={"text": text},
-                                             char_filter=",".join(charFiltersInUse))
+        body = {"text": text, "char_filter": charFiltersInUse}
+        analyzeResp = es.indices.analyze(index=indexName, body=body)
         printTokens(analyzeResp)
 
     # Add tokenizer
     print("TOKENIZER: %s" % tokenizer)
-    analyzeResp = es.indices.analyze(index=indexName, body={"text": text},
-                                     char_filter=",".join(charFiltersInUse),
-                                     tokenizer=tokenizer)
+    print("char filters %s" % charFiltersInUse)
+    body = {"text": text, "char_filter": charFiltersInUse, "tokenizer": tokenizer}
+    analyzeResp = es.indices.analyze(index=indexName, body=body)
     printTokens(analyzeResp)
 
     # Token Filters
@@ -81,11 +81,10 @@ def stepWise(text, indexName, analyzer, es):
         filters = analyzer['filters']
     else:
         raise ValueError("Weird... No Filters for analyzer %s" % analyzer)
+    print("filters %s" % filters)
     for currFilter in filters:
         print("TOKEN_FILTER: %s" % currFilter)
         filtersInUse.append(currFilter)
-        analyzeResp = es.indices.analyze(index=indexName, body={"text": text},
-                                         char_filter=",".join(charFiltersInUse),
-                                         filter=",".join(filtersInUse),
-                                         tokenizer=tokenizer)
+        body = {"text": text, "char_filter": charFiltersInUse, "tokenizer": tokenizer, "filter": filtersInUse}
+        analyzeResp = es.indices.analyze(index=indexName, body=body)
         printTokens(analyzeResp)
