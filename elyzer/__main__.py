@@ -2,7 +2,7 @@ import urllib3
 urllib3.disable_warnings()
 
 import argparse
-from elasticsearch import Elasticsearch
+from elasticsearch import Elasticsearch, TransportError
 from elyzer import stepWise, getAnalyzer
 from envDefault import EnvDefault
 
@@ -37,6 +37,11 @@ def main():
 
     except KeyboardInterrupt:
         print('Interrupted')
+    except TransportError as e:
+        print("Unexpected Elasticsearch Transport Exception:")
+        print(e.error)
+        print(e.info)
+
 
 if __name__ == "__main__":
     main()
