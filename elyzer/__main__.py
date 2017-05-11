@@ -20,7 +20,7 @@ def parse_args():
     parser.add_argument('--analyzer', type=str, action=EnvDefault, required=True,
                         envvar='ELYZER_ANALYZER',
                         help='Name of the custom analyzer, ie my_text_analyzer (defaults to envvar ELYZER_ANALYZER)')
-    parser.add_argument('text', type=str,
+    parser.add_argument('text', type=lambda s: unicode(s, 'utf8'),
                         help='Text to analyze, ie "mary had a little lamb"')
     return vars(parser.parse_args())
 
