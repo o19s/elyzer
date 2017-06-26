@@ -48,7 +48,7 @@ def printTokens(analyzeResp):
             posnToTokens[token['position']] = [token['token']]
 
     outputStr = ""
-    for position, tokens in posnToTokens.iteritems():
+    for position, tokens in posnToTokens.items():
         outputStr += ("{%s:" % position) + ",".join(tokens) + "}\t"
     print(outputStr)
 
