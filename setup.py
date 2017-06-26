@@ -24,15 +24,12 @@ setup(
     install_requires=['elasticsearch>=5.0.0,<6.0.0'],
     keywords=["elasticsearch", "database"],
     classifiers=[
-          'Development Status :: 3 - Alpha',
           'Environment :: Console',
           'Intended Audience :: Developers',
           'Intended Audience :: System Administrators',
           'License :: OSI Approved :: Apache Software License',
           'Natural Language :: English',
-          'Programming Language :: Python :: 2',
-          'Programming Language :: Python :: 2.6',
-          'Programming Language :: Python :: 2.7',
+          'Programming Language :: Python :: 3',
           'Topic :: Utilities'
     ]
 )
