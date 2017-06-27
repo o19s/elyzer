@@ -1,6 +1,6 @@
 # Elyzer
 
-See step-by-step how Elasticsearch custom analyzers decompose your text into tokens. Requires Python 3.x+
+See step-by-step how Elasticsearch custom analyzers decompose your text into tokens.
 
 My therapist said this would be a good idea...
 
@@ -19,14 +19,11 @@ Eliza  Come, come, elucidate your thoughts.
 
 # Installation
 
-Install through pip
+Install through pip3
 
 (ES 2.x & 5.x)
 
     pip3 install elyzer
-
-Recommended usage with [pyenv](https://github.com/pyenv/pyenv#basic-github-checkout)
-
 
 # Usage
 
