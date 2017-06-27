@@ -3,8 +3,14 @@ urllib3.disable_warnings()
 
 import argparse
 from elasticsearch import Elasticsearch, TransportError
-from elyzer import stepWise, getAnalyzer
-from envDefault import EnvDefault
+
+try:
+    from elyzer import stepWise, getAnalyzer
+    from envDefault import EnvDefault
+except ImportError:
+    from .elyzer import stepWise, getAnalyzer
+    from .envDefault import EnvDefault
+
 
 def parse_args():
     parser = argparse.ArgumentParser()
