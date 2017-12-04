@@ -13,6 +13,10 @@ standard_analyzers = {
 class AnalyzerNotFound(Exception):
     pass
 
+class MultipleIndexesForAlias(Exception):
+    pass
+
+
 def listify(strVal):
     if (isinstance(strVal, str)):
         return [strVal]
@@ -42,12 +46,20 @@ def getAnalyzer(indexName, analyzerName, es):
 
     # otherwise try custom ones
     settings = es.indices.get_settings(index=indexName)
+
+    indexes = list(settings.values())
+    index_count = len(indexes)
+
+    if index_count > 1:
+      raise MultipleIndexesForAlias()
+
     try:
-        analyzer = settings[indexName]['settings']['index']['analysis']['analyzer'][analyzerName]
+        analyzer = indexes[0]['settings']['index']['analysis']['analyzer'][analyzerName]
         normalizeAnalyzer(analyzer)
         return analyzer
     except KeyError:
-        raise AnalyzerNotFound()
+      raise AnalyzerNotFound()
+
 
 def printTokens(analyzeResp):
     tokens = analyzeResp['tokens']
