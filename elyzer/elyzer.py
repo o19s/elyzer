@@ -11,7 +11,8 @@ standard_analyzers = {
 }
 
 class AnalyzerNotFound(Exception):
-    pass
+    def __init__(self, analyzer_name):
+        self.error = "Analyzer '{}' not found".format(analyzer_name)
 
 class MultipleIndexesForAlias(Exception):
     pass
@@ -58,7 +59,7 @@ def getAnalyzer(indexName, analyzerName, es):
         normalizeAnalyzer(analyzer)
         return analyzer
     except KeyError:
-      raise AnalyzerNotFound()
+      raise AnalyzerNotFound(analyzerName)
 
 
 def printTokens(analyzeResp):

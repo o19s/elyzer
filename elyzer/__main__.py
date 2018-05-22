@@ -5,10 +5,10 @@ import argparse
 from elasticsearch import Elasticsearch, TransportError
 
 try:
-    from elyzer import stepWise, getAnalyzer
+    from elyzer import stepWise, getAnalyzer, AnalyzerNotFound
     from envDefault import EnvDefault
 except ImportError:
-    from .elyzer import stepWise, getAnalyzer
+    from .elyzer import stepWise, getAnalyzer, AnalyzerNotFound
     from .envDefault import EnvDefault
 
 
@@ -43,6 +43,8 @@ def main():
 
     except KeyboardInterrupt:
         print('Interrupted')
+    except AnalyzerNotFound as e:
+        print(e.error)
     except TransportError as e:
         print("Unexpected Elasticsearch Transport Exception:")
         print(e.error)
